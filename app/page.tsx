@@ -18,7 +18,7 @@ export default function HomePage() {
             Torii
           </h1>
           <p className="text-xs sm:text-sm text-zinc-400 font-medium tracking-wide">
-            Three realms. One gate.
+            The gateway to all realms.
           </p>
 
           {/* OmniSearch */}
@@ -27,7 +27,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* The 3 Portal Cards with icons */}
+        {/* Portal Realm Cards */}
         <section className="w-full">
           <RealmPortals />
         </section>
