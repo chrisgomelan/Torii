@@ -13,7 +13,6 @@ export function RealmPortals() {
       desc: "Blockbusters, classics, and 4K cinema streaming.",
       icon: <TanukiMaskIcon className="size-4 text-amber-400" />,
       dotColor: "bg-amber-400",
-      accentBorder: "group-hover:border-amber-500/30",
     },
     {
       ...REALMS.kitsune,
@@ -22,7 +21,6 @@ export function RealmPortals() {
       desc: "Top ranked, seasonal hits, sub and dub.",
       icon: <KitsuneMaskIcon className="size-4 text-violet-400" />,
       dotColor: "bg-violet-400",
-      accentBorder: "group-hover:border-violet-500/30",
     },
     {
       ...REALMS.gumiho,
@@ -31,12 +29,11 @@ export function RealmPortals() {
       desc: "Korean dramas and Western television series.",
       icon: <GumihoCrestIcon className="size-4 text-rose-400" />,
       dotColor: "bg-rose-400",
-      accentBorder: "group-hover:border-rose-500/30",
     },
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 w-full">
       {cards.map((realm) => (
         <a
           key={realm.id}
@@ -46,10 +43,10 @@ export function RealmPortals() {
           className="group relative flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#101014] p-5 transition hover:border-white/20 hover:bg-[#131318] active:scale-[0.99]"
         >
           <div className="space-y-3.5">
-            {/* Top row: Icon box + category badge on left, arrow on right */}
+            {/* Header: Icon container on left + Type badge, Arrow on right */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/[0.04] ring-1 ring-white/10 transition group-hover:bg-white/[0.08]">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/[0.05] ring-1 ring-white/10 transition group-hover:bg-white/[0.08]">
                   {realm.icon}
                 </div>
                 <div className="flex items-center gap-1.5">
@@ -76,7 +73,7 @@ export function RealmPortals() {
             </div>
           </div>
 
-          {/* Bottom row */}
+          {/* Footer */}
           <div className="pt-5 flex items-center justify-between text-xs border-t border-white/[0.04]">
             <span className="text-[11px] text-zinc-500 font-mono">100% Free</span>
             <span className="text-zinc-400 group-hover:text-white transition font-medium">

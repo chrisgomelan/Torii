@@ -1,28 +1,37 @@
+import { ToriiGateIcon } from "@/components/Icons";
 import { OmniSearch } from "@/components/OmniSearch";
 import { RealmPortals } from "@/components/RealmPortals";
 
 export default function HomePage() {
   return (
-    <div className="mx-auto max-w-5xl px-4 sm:px-6 py-16 sm:py-24 space-y-12">
-      {/* Cool, Minimal Hero */}
-      <section className="text-center space-y-3 max-w-md mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-          Torii
-        </h1>
-        <p className="text-xs sm:text-sm text-zinc-400">
-          The gateway to Tanuki, Kitsune, and Gumiho.
-        </p>
+    <main className="min-h-screen w-full flex flex-col items-center justify-center px-4 sm:px-6 py-12 sm:py-16">
+      <div className="w-full max-w-4xl space-y-10 sm:space-y-12">
+        {/* Gateway Emblem & Header */}
+        <section className="text-center space-y-3 max-w-md mx-auto">
+          <div className="flex items-center justify-center">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/[0.04] ring-1 ring-white/10 text-white">
+              <ToriiGateIcon className="size-6 text-white" />
+            </div>
+          </div>
 
-        {/* Clean, sleek OmniSearch */}
-        <div className="pt-3">
-          <OmniSearch />
-        </div>
-      </section>
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+            Torii
+          </h1>
+          <p className="text-xs sm:text-sm text-zinc-400">
+            The gateway to Tanuki, Kitsune, and Gumiho.
+          </p>
 
-      {/* The 3 Clean Realm Cards */}
-      <section className="pt-2">
-        <RealmPortals />
-      </section>
-    </div>
+          {/* OmniSearch */}
+          <div className="pt-2">
+            <OmniSearch />
+          </div>
+        </section>
+
+        {/* The 3 Portal Cards with icons */}
+        <section className="w-full">
+          <RealmPortals />
+        </section>
+      </div>
+    </main>
   );
 }
