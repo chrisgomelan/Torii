@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #08080a;
+  --bg: #070709;
   --surface: #101014;
   --border: rgba(255, 255, 255, 0.08);
 }
@@ -20,6 +20,7 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Minimalist scrollbar */
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
@@ -41,4 +42,46 @@ body {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* 60/120fps Pure GPU-accelerated Keyframes for Atmospheric Background */
+@keyframes auroraDrift {
+  0% {
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-48%, -53%, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+}
+
+@keyframes floatEmber {
+  0% {
+    transform: translate3d(0, 105vh, 0);
+    opacity: 0;
+  }
+  15% {
+    opacity: var(--tw-opacity, 0.3);
+  }
+  80% {
+    opacity: var(--tw-opacity, 0.3);
+  }
+  100% {
+    transform: translate3d(20px, -15px, 0);
+    opacity: 0;
+  }
+}
+
+.animate-aurora-drift {
+  animation: auroraDrift 30s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-float-ember {
+  animation-name: floatEmber;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
 }

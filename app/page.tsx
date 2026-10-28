@@ -17,8 +17,8 @@ export default function HomePage() {
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
             Torii
           </h1>
-          <p className="text-xs sm:text-sm text-zinc-400">
-            The gateway to Tanuki, Kitsune, and Gumiho.
+          <p className="text-xs sm:text-sm text-zinc-400 font-medium tracking-wide">
+            Three realms. One gate.
           </p>
 
           {/* OmniSearch */}
