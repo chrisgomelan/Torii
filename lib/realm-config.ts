@@ -1,12 +1,17 @@
 import type { RealmMeta } from "@/types/torii";
 
-export const REALMS: Record<"tanuki" | "kitsune" | "gumiho", RealmMeta> = {
+export const REALMS: Record<string, RealmMeta> = {
   tanuki: {
     id: "tanuki",
     name: "Tanuki",
     kanji: "狸",
     guardian: "The Golden Raccoon Spirit",
     category: "Movies & Blockbusters",
+    type: "Movies",
+    headline: "Feature Films",
+    desc: "Blockbusters, classics, and 4K cinema streaming.",
+    dotColor: "bg-amber-400",
+    iconName: "tanuki",
     tagline: "The Grand Cinematic Realm",
     description: "4K HDR feature films, global box office titans, indie wonders, and timeless masterpieces with multi-server streaming.",
     accentHex: "#f59e0b",
@@ -15,7 +20,7 @@ export const REALMS: Record<"tanuki" | "kitsune" | "gumiho", RealmMeta> = {
     bgGradient: "bg-gradient-to-br from-amber-950/40 via-zinc-900/80 to-[#0c0d14]",
     badgeClass: "bg-amber-500/20 text-amber-300 ring-amber-500/30",
     badgeText: "Cinematic Hub",
-    url: process.env.NEXT_PUBLIC_TANUKI_URL || "https://tanuki-ashy-zeta.vercel.app",
+    url: "https://tanuki-ashy-zeta.vercel.app",
     features: ["100% Free Streaming", "Multi-Server Fallback", "IMDb & 4K Metadata", "Zero Accounts Needed"],
     stats: {
       itemsCount: "10,000+ Movies",
@@ -29,6 +34,11 @@ export const REALMS: Record<"tanuki" | "kitsune" | "gumiho", RealmMeta> = {
     kanji: "狐",
     guardian: "The Celestial Nine-Tailed Fox",
     category: "Anime & Seasonal Sagas",
+    type: "Anime",
+    headline: "Animation Sagas",
+    desc: "Top ranked, seasonal hits, sub and dub.",
+    dotColor: "bg-violet-400",
+    iconName: "kitsune",
     tagline: "The Celestial Anime Realm",
     description: "Top-ranked anime series, seasonal broadcasts, shonen legends, and romantic fantasies powered by live Jikan and AniList streams.",
     accentHex: "#8b5cf6",
@@ -37,7 +47,7 @@ export const REALMS: Record<"tanuki" | "kitsune" | "gumiho", RealmMeta> = {
     bgGradient: "bg-gradient-to-br from-violet-950/40 via-zinc-900/80 to-[#0c0d14]",
     badgeClass: "bg-violet-500/20 text-violet-300 ring-violet-500/30",
     badgeText: "Anime Universe",
-    url: process.env.NEXT_PUBLIC_KITSUNE_URL || "https://kitsune-sepia-six.vercel.app",
+    url: "https://kitsune-sepia-six.vercel.app",
     features: ["Sub & Dub Options", "Seasonal Broadcasts", "MyAnimeList Sync", "Episode Savepoints"],
     stats: {
       itemsCount: "5,000+ Anime",
@@ -51,6 +61,11 @@ export const REALMS: Record<"tanuki" | "kitsune" | "gumiho", RealmMeta> = {
     kanji: "구미호",
     guardian: "The Thousand-Year Korean Fox",
     category: "K-Dramas & Western TV",
+    type: "Series",
+    headline: "K-Dramas & TV",
+    desc: "Korean dramas and Western television series.",
+    dotColor: "bg-rose-400",
+    iconName: "gumiho",
     tagline: "The Dramatic Episodic Realm",
     description: "The most binge-worthy Korean romance & revenge dramas, paired with critically acclaimed American and Western TV series.",
     accentHex: "#f43f5e",
@@ -59,7 +74,7 @@ export const REALMS: Record<"tanuki" | "kitsune" | "gumiho", RealmMeta> = {
     bgGradient: "bg-gradient-to-br from-rose-950/40 via-zinc-900/80 to-[#0c0d14]",
     badgeClass: "bg-rose-500/20 text-rose-300 ring-rose-500/30",
     badgeText: "Drama Sanctuary",
-    url: process.env.NEXT_PUBLIC_GUMIHO_URL || "https://gumiho-beta.vercel.app",
+    url: "https://gumiho-beta.vercel.app",
     features: ["K-Drama & Western", "Complete Seasons", "Zero Ad-Wall", "Timestamp Memory"],
     stats: {
       itemsCount: "3,000+ Series",
@@ -68,3 +83,6 @@ export const REALMS: Record<"tanuki" | "kitsune" | "gumiho", RealmMeta> = {
     },
   },
 };
+
+export const REALM_LIST: RealmMeta[] = Object.values(REALMS);
+

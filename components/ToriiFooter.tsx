@@ -1,4 +1,4 @@
-import { REALMS } from "@/lib/realm-config";
+import { REALM_LIST } from "@/lib/realm-config";
 
 export function ToriiFooter() {
   return (
@@ -7,13 +7,21 @@ export function ToriiFooter() {
         <div className="flex items-center gap-2 text-zinc-400">
           <span className="font-semibold text-white">Torii</span>
           <span>•</span>
-          <span>Gateway to Tanuki, Kitsune & Gumiho</span>
+          <span>Portal Gateway to Digital Realms</span>
         </div>
 
-        <div className="flex items-center gap-4 text-zinc-400">
-          <a href={REALMS.tanuki.url} target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Tanuki</a>
-          <a href={REALMS.kitsune.url} target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Kitsune</a>
-          <a href={REALMS.gumiho.url} target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Gumiho</a>
+        <div className="flex flex-wrap items-center gap-4 text-zinc-400">
+          {REALM_LIST.map((realm) => (
+            <a
+              key={realm.id}
+              href={realm.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition"
+            >
+              {realm.name}
+            </a>
+          ))}
         </div>
       </div>
     </footer>

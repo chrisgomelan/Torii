@@ -4,7 +4,7 @@ import { AtmosphericBackground } from "@/components/AtmosphericBackground";
 
 export const metadata: Metadata = {
   title: "Torii — Portal Gateway",
-  description: "Three realms. One gate.",
+  description: "The gateway to all realms.",
 };
 
 export default function RootLayout({

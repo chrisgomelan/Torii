@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ToriiGateIcon } from "@/components/Icons";
-import { REALMS } from "@/lib/realm-config";
+import { REALM_LIST } from "@/lib/realm-config";
 import { ArrowUpRight } from "lucide-react";
 
 export function ToriiNavbar() {
@@ -15,38 +15,19 @@ export function ToriiNavbar() {
         </Link>
 
         <nav className="flex items-center gap-1 sm:gap-2">
-          <a
-            href={REALMS.tanuki.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs text-zinc-400 hover:text-white hover:bg-white/[0.04] transition"
-          >
-            <span>Tanuki</span>
-            <span className="text-[10px] text-zinc-600 hidden sm:inline">Movies</span>
-            <ArrowUpRight className="size-3 opacity-60" />
-          </a>
-
-          <a
-            href={REALMS.kitsune.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs text-zinc-400 hover:text-white hover:bg-white/[0.04] transition"
-          >
-            <span>Kitsune</span>
-            <span className="text-[10px] text-zinc-600 hidden sm:inline">Anime</span>
-            <ArrowUpRight className="size-3 opacity-60" />
-          </a>
-
-          <a
-            href={REALMS.gumiho.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs text-zinc-400 hover:text-white hover:bg-white/[0.04] transition"
-          >
-            <span>Gumiho</span>
-            <span className="text-[10px] text-zinc-600 hidden sm:inline">Series</span>
-            <ArrowUpRight className="size-3 opacity-60" />
-          </a>
+          {REALM_LIST.map((realm) => (
+            <a
+              key={realm.id}
+              href={realm.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs text-zinc-400 hover:text-white hover:bg-white/[0.04] transition"
+            >
+              <span>{realm.name}</span>
+              <span className="text-[10px] text-zinc-600 hidden sm:inline">{realm.type}</span>
+              <ArrowUpRight className="size-3 opacity-60" />
+            </a>
+          ))}
         </nav>
       </div>
     </header>

@@ -10,7 +10,6 @@ export function OmniSearch() {
   const [results, setResults] = useState<OmniSearchResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<"all" | "tanuki" | "kitsune" | "gumiho">("all");
 
   const containerRef = useRef<HTMLDivElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
@@ -66,11 +65,6 @@ export function OmniSearch() {
     };
   }, [query]);
 
-  const displayedResults = results.filter((item) => {
-    if (activeTab === "all") return true;
-    return item.realmId === activeTab;
-  });
-
   return (
     <div ref={containerRef} className="relative w-full max-w-xl mx-auto text-left">
       {/* Clean Minimal Search Input */}
@@ -78,7 +72,7 @@ export function OmniSearch() {
         <Search className="size-4 text-zinc-500 shrink-0" />
         <input
           type="text"
-          placeholder="Search movies, anime, or series..."
+          placeholder="Search across all realms..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => {
@@ -104,55 +98,15 @@ export function OmniSearch() {
 
       {/* Clean Dropdown */}
       {isOpen && query.trim().length >= 2 && (
-        <div className="absolute top-full left-0 right-0 mt-2 z-50 overflow-hidden rounded-xl border border-white/10 bg-[#101014] p-3 shadow-xl space-y-2">
-          {/* Realm Filter Tabs */}
-          <div className="flex items-center gap-1 border-b border-white/5 pb-2 text-[11px]">
-            <button
-              type="button"
-              onClick={() => setActiveTab("all")}
-              className={`rounded px-2 py-0.5 font-medium transition ${
-                activeTab === "all" ? "bg-white/10 text-white" : "text-zinc-500 hover:text-zinc-300"
-              }`}
-            >
-              All ({results.length})
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveTab("tanuki")}
-              className={`rounded px-2 py-0.5 font-medium transition ${
-                activeTab === "tanuki" ? "bg-white/10 text-white" : "text-zinc-500 hover:text-zinc-300"
-              }`}
-            >
-              Movies
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveTab("kitsune")}
-              className={`rounded px-2 py-0.5 font-medium transition ${
-                activeTab === "kitsune" ? "bg-white/10 text-white" : "text-zinc-500 hover:text-zinc-300"
-              }`}
-            >
-              Anime
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveTab("gumiho")}
-              className={`rounded px-2 py-0.5 font-medium transition ${
-                activeTab === "gumiho" ? "bg-white/10 text-white" : "text-zinc-500 hover:text-zinc-300"
-              }`}
-            >
-              Series
-            </button>
-          </div>
-
+        <div className="absolute top-full left-0 right-0 mt-2 z-50 overflow-hidden rounded-xl border border-white/10 bg-[#101014] p-2 shadow-xl">
           {/* Results */}
-          {displayedResults.length === 0 ? (
+          {results.length === 0 ? (
             <div className="py-6 text-center text-xs text-zinc-500">
               {isLoading ? "Searching realms..." : "No matches found."}
             </div>
           ) : (
             <div className="max-h-80 overflow-y-auto space-y-1">
-              {displayedResults.map((item, idx) => (
+              {results.map((item, idx) => (
                 <a
                   key={`${item.realmId}-${item.id}-${idx}`}
                   href={item.watchUrl}
@@ -174,7 +128,9 @@ export function OmniSearch() {
                     </div>
                     <div className="min-w-0">
                       <div className="flex items-center gap-1.5 text-[10px] text-zinc-500">
-                        <span className="uppercase tracking-wider">{item.realmName.split(" ")[0]}</span>
+                        <span className="uppercase tracking-wider font-medium text-zinc-400">
+                          {item.realmName.split(" ")[0]}
+                        </span>
                         {item.year && <span>• {item.year}</span>}
                       </div>
                       <h4 className="text-xs font-semibold text-zinc-200 truncate group-hover:text-white transition">

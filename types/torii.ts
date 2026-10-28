@@ -1,9 +1,14 @@
 export interface RealmMeta {
-  id: "tanuki" | "kitsune" | "gumiho";
+  id: string;
   name: string;
   kanji: string;
   guardian: string;
   category: string;
+  type?: string;
+  headline?: string;
+  desc?: string;
+  dotColor?: string;
+  iconName?: string;
   tagline: string;
   description: string;
   accentHex: string;
@@ -23,7 +28,7 @@ export interface RealmMeta {
 
 export interface OmniSearchResult {
   id: string | number;
-  realmId: "tanuki" | "kitsune" | "gumiho";
+  realmId: string;
   realmName: string;
   title: string;
   subtitle?: string;
@@ -35,7 +40,7 @@ export interface OmniSearchResult {
 }
 
 export interface OracleSuggestion {
-  realmId: "tanuki" | "kitsune" | "gumiho";
+  realmId: string;
   realmName: string;
   title: string;
   synopsis: string;
